@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signals',
   standalone: true,
   imports: [],
-  template: ` <p>Signal Stuff Here!</p> `,
+  template: ` <p>Signal Stuff</p> `,
   styles: ``,
 })
 export class SignalsComponent {}
