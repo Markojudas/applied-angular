@@ -15,7 +15,7 @@ import { NavBarLinks } from './models';
         <a class="btn btn-ghost text-xl">Help Desk</a>
       </div>
       <div class="navbar-center hidden lg:flex">
-        <app-main-menu [listOfLinks]="links()" />
+        <app-main-menu [listOfLinks]="topNavLinks()" />
       </div>
       <div class="navbar-end">
         <app-user-menu />
@@ -25,7 +25,7 @@ import { NavBarLinks } from './models';
   styles: ``,
 })
 export class NavBarComponent {
-  links = signal<NavBarLinks>([
+  topNavLinks = signal<NavBarLinks>([
     {
       label: 'Students',
       link: '/students',
