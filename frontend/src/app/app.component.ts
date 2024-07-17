@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { UserActions } from './state/user/actions';
 
 @Component({
@@ -17,7 +17,13 @@ import { UserActions } from './state/user/actions';
   imports: [RouterOutlet, NavBarComponent],
 })
 export class AppComponent {
-  constructor(store: Store) {
+  constructor(store: Store, router: Router) {
     store.dispatch(UserActions.getTheUser());
+    // const userLoaded = store.selectSignal(UserFeature.selectUserLoaded);
+    // effect(() => {
+    //   if (userLoaded()) {
+    //     router.navigateByUrl('/dashboard');
+    //   }
+    // });
   }
 }

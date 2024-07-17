@@ -21,20 +21,21 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     // unnaccesable until user is loaded
-    canActivate: [userIsLoadedGuard()],
+    // canActivate: [userIsLoadedGuard()],
+    canActivate: [],
     loadChildren: () =>
       import('./dashboard/dashboard-routes').then((r) => r.DASHBOARD_ROUTES),
   },
 ];
 
-function userIsLoadedGuard(): CanActivateFn {
-  //dont inject here; doesn't work because not a injection context (ie, not constructor)
-  return () => {
-    const store = inject(Store); //makes sense here though.
-    const userLoaded = store.selectSignal(UserFeature.selectUserLoaded);
-    return userLoaded();
-  };
-}
+// function userIsLoadedGuard(): CanActivateFn {
+//   //dont inject here; doesn't work because not a injection context (ie, not constructor)
+//   return () => {
+//     const store = inject(Store); //makes sense here though.
+//     const userLoaded = store.selectSignal(UserFeature.selectUserLoaded);
+//     return userLoaded();
+//   };
+// }
 
 function userDataLoadedGuard(): CanActivateFn {
   return () => false;
