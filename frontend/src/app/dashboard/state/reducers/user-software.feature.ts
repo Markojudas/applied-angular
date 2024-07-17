@@ -12,16 +12,7 @@ export type UserSoftwareState = {
 };
 
 const initialState: UserSoftwareState = {
-  list: [
-    {
-      id: '1',
-      name: 'Visual Studio Code',
-    },
-    {
-      id: '2',
-      name: 'Jetbrain Rider',
-    },
-  ],
+  list: [],
   titleFilter: null,
 };
 
@@ -29,9 +20,13 @@ export const UserSoftwareFeature = createFeature({
   name: 'User Software',
   reducer: createReducer(
     initialState,
-    on(SoftwareListActions.listFilteredBy, (beforeState, action) => ({
-      list: beforeState.list,
-      titleFilter: action.payload,
+    on(SoftwareListActions.entitledSoftware, (s, a) => ({
+      ...s,
+      list: a.payload,
+    })),
+    on(SoftwareListActions.listFilteredBy, (s, { payload }) => ({
+      ...s,
+      titleFilter: payload,
     }))
   ),
   extraSelectors: ({ selectList, selectTitleFilter }) => ({

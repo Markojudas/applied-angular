@@ -12,7 +12,7 @@ import { loadUser } from './state/user/get-user.effect';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withDebugTracing()),
+    provideRouter(routes),
     provideHttpClient(),
     provideStore(),
     provideState(UserFeature),
