@@ -6,7 +6,7 @@ import { map, switchMap } from 'rxjs';
 import { SoftwareItem } from '../reducers/user-software.feature';
 
 @Injectable({ providedIn: 'root' })
-export class EntitledSoftwareEffect {
+export class EntitleSoftwareEffect {
   loadUserEntitledSoftware$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(SoftwareListActions.loadTheEntitledSoftware),
