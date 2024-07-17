@@ -8,10 +8,10 @@ import { UserFeature } from '../../../state/user/user-feature';
   standalone: true,
   imports: [AsyncPipe],
   template: ` <div class="btn">
-    @if(user() === '') {
-    <span class="loading loading-ring loading-md"></span>
-    } @else {
+    @if(userLoaded()) {
     {{ user() }}
+    } @else {
+    <span class="loading loading-ring loading-md"></span>
     }
   </div>`,
   styles: ``,
@@ -20,4 +20,5 @@ export class UserMenuComponent {
   store = inject(Store);
 
   user = this.store.selectSignal(UserFeature.selectSub);
+  userLoaded = this.store.selectSignal(UserFeature.selectUserLoaded);
 }
