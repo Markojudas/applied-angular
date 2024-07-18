@@ -10,7 +10,7 @@ import { SoftwareListActions } from './state/actions/list.actions';
   imports: [RouterLink, RouterOutlet, BeginComponent],
   template: `
     <h1>Welcome to the Dashboard</h1>
-    <a routerLink="mock">See the Mocks</a>
+    <a routerLink="mock">See the Mocks</a><br />
     <a routerLink="create-issue">Create an Issue</a>
     <router-outlet />
 
